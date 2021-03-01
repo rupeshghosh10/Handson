@@ -1,4 +1,4 @@
 # Stage 3 Handson
 
 ### To install package.
-open NuGet Package Manager. Click on restore.
+Open NuGet Package Manager. Click on restore.
