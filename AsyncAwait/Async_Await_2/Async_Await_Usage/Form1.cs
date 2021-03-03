@@ -22,7 +22,7 @@ namespace Async_Await_Usage
         private int CountCharacters()
         {
             int count = 0;
-            using (StreamReader reader = new StreamReader(@"C:\Users\user\Desktop\Stage 3 Handon\Handson\AsyncAwait\Async_Await_2\Async_Await_Usage\TextFile1.txt"))
+            using (StreamReader reader = new StreamReader(@"C:\Users\admin\Desktop\Handson\AsyncAwait\Async_Await_2\Async_Await_Usage\TextFile1.txt"))
             {
                 string content = reader.ReadToEnd();
                 count = content.Length;

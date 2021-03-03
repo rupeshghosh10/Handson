@@ -47,7 +47,7 @@ namespace CalcLibrary.UnitTest
         [Test]
         [TestCase(1, 2, 0.5)]
         [TestCase(2, 2, 1)]
-        [TestCase(1, 0, 0)]
+        [TestCase(1, 1, 1)]
         public void Divison_WhenCalled_ReturnDivision(double a, double b, double expected)
         {
             try

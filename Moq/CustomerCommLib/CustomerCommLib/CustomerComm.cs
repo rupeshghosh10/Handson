@@ -18,7 +18,7 @@ namespace CustomerCommLib
         public bool SendMailToCustomer()
         {
             //Actual logic goes here
-            //define message and mail address
+            //define message and mail address 
 
             _mailSender.SendMail("cust123@abc.com", "Some Message");
 
