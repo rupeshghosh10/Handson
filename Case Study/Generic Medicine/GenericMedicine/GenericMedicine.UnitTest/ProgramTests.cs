@@ -15,25 +15,9 @@ namespace GenericMedicine.UnitTest
         }
 
         [Test]
-        [TestCase(null, "abc", "abc", "2021-04-08", 1)]
-        [TestCase("", "abc", "abc", "2021-04-08", 1)]
-        public void CreateMedicineDetail_NameIsNullOrEmpty_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
-        {
-            Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
-        }
-
-        [Test]
         [TestCase("abc", null, "abc", "2021-04-08", 1)]
         [TestCase("abc", "", "abc", "2021-04-08", 1)]
         public void CreateMedicineDetail_MedicineNameIsNullOrEmpty_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
-        {
-            Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
-        }
-        
-        [Test]
-        [TestCase("abc", "abc", null, "2021-04-08", 1)]
-        [TestCase("abc", "abc", "", "2021-04-08", 1)]
-        public void CreateMedicineDetail_CompositionIsNullOrEmpty_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
         {
             Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
         }
@@ -41,7 +25,7 @@ namespace GenericMedicine.UnitTest
         [Test]
         [TestCase("abc", "abc", "abc", "2021-04-08", 0)]
         [TestCase("abc", "abc", "abc", "2021-04-08", -1)] 
-        public void CreateMedicineDetail_PriceIsLessThanOrEqualZero_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
+        public void CreateMedicineDetail_PricePerStripIsLessThanOrEqualZero_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
         {
             Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
         }
@@ -60,15 +44,6 @@ namespace GenericMedicine.UnitTest
             var result = _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip);
 
             Assert.That(result, Is.TypeOf<Medicine>());
-        }
-
-        [Test]
-        [TestCase(1, "2021-04-08", "abc", null)]
-        public void CreateCartonDetail_IfMedicineIsNull_ReturnNull(int medicineStripCount, DateTime launchDate, string retailerAddress, Medicine medicine)
-        {
-            var result = _program.CreateCartonDetail(medicineStripCount, launchDate, retailerAddress, medicine);
-
-            Assert.That(result, Is.EqualTo(null));
         }
 
         [Test]
@@ -105,36 +80,12 @@ namespace GenericMedicine.UnitTest
         }
 
         [Test]
-        [TestCase(1, "2022-04-08", "abc")]
-        public void CreateCartonDetail_LaunchDateGreaterThanMedicineExpiryDate_ReturnExceptiom(int medicineStripCount, DateTime launchDate, string retailerAddress)
+        [TestCase(1, "2021-04-08", "abc", null)]
+        public void CreateCartonDetail_IfMedicineIsNull_ReturnNull(int medicineStripCount, DateTime launchDate, string retailerAddress, Medicine medicine)
         {
-            var medicine = new Medicine()
-            {
-                Name = "abc",
-                GenericMedicineName = "abc",
-                Composition = "abc",
-                ExpiryDate = new DateTime(2021, 5, 8),
-                PricePerStrip = 1
-            };
+            var result = _program.CreateCartonDetail(medicineStripCount, launchDate, retailerAddress, medicine);
 
-            Assert.Throws<Exception>(() => _program.CreateCartonDetail(medicineStripCount, launchDate, retailerAddress, medicine));
-        }
-
-        [Test]
-        [TestCase(1, "2021-04-08", null)]
-        [TestCase(1, "2021-04-08", "")]
-        public void CreateCartonDetail_RetailerAddressIsNullOrEmpty_ReturnExceptiom(int medicineStripCount, DateTime launchDate, string retailerAddress)
-        {
-            var medicine = new Medicine()
-            {
-                Name = "abc",
-                GenericMedicineName = "abc",
-                Composition = "abc",
-                ExpiryDate = new DateTime(2021, 5, 8),
-                PricePerStrip = 1
-            };
-
-            Assert.Throws<Exception>(() => _program.CreateCartonDetail(medicineStripCount, launchDate, retailerAddress, medicine));
+            Assert.That(result, Is.EqualTo(null));
         }
 
         [Test]
