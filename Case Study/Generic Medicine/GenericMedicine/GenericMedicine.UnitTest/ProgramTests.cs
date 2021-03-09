@@ -27,7 +27,7 @@ namespace GenericMedicine.UnitTest
         [Test]
         [TestCase("abc", null, "abc", "2021-04-08", 1)]
         [TestCase("abc", "", "abc", "2021-04-08", 1)]
-        public void CreateMedicineDetail_MedicineNameIsNullOrEmpty_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
+        public void CreateMedicineDetail_MedicineNameIsNullOrEmpty_RaiseExcception(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
         {
             Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
         }
@@ -35,14 +35,14 @@ namespace GenericMedicine.UnitTest
         [Test]
         [TestCase("abc", "abc", "abc", "2021-04-08", 0)]
         [TestCase("abc", "abc", "abc", "2021-04-08", -1)] 
-        public void CreateMedicineDetail_PricePerStripIsLessThanOrEqualZero_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
+        public void CreateMedicineDetail_PricePerStripIsLessThanOrEqualZero_RaiseExcception(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
         {
             Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
         }
 
         [Test]
         [TestCase("abc", "abc", "abc", "2020-04-08", 1)]
-        public void CreateMedicineDetail_ExpiryDateLessThanCurrentDate_ReturnException(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
+        public void CreateMedicineDetail_ExpiryDateLessThanCurrentDate_RaiseExcception(string name, string genericMedicineName, string composition, DateTime expiryDate, double pricePerStrip)
         {
             Assert.Throws<Exception>(() => _program.CreateMedicineDetail(name, genericMedicineName, composition, expiryDate, pricePerStrip));
         }
@@ -69,7 +69,7 @@ namespace GenericMedicine.UnitTest
         [Test]
         [TestCase(0, "2021-04-08", "abc")]
         [TestCase(-1, "2021-04-08", "abc")]
-        public void CreateCartonDetail_MedicineStripCountIsLessOrEqualZero_ReturnExceptiom(int medicineStripCount, DateTime launchDate, string retailerAddress)
+        public void CreateCartonDetail_MedicineStripCountIsLessOrEqualZero_RaiseException(int medicineStripCount, DateTime launchDate, string retailerAddress)
         {
             var medicine = new Medicine()
             {
@@ -82,10 +82,10 @@ namespace GenericMedicine.UnitTest
 
             Assert.Throws<Exception>(() => _program.CreateCartonDetail(medicineStripCount, launchDate, retailerAddress, medicine));
         }
-         
+        
         [Test]
         [TestCase(1, "2020-04-08", "abc")]
-        public void CreateCartonDetail_LaunchDateLessThanCurrentDate_ReturnExceptiom(int medicineStripCount, DateTime launchDate, string retailerAddress)
+        public void CreateCartonDetail_LaunchDateLessThanCurrentDate_RaiseException(int medicineStripCount, DateTime launchDate, string retailerAddress)
         {
             var medicine = new Medicine()
             {
