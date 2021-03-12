@@ -42,7 +42,7 @@ namespace MyFoodSupply.UnitTest
         }
 
         [Test]
-        [TestCase("abc", 2, "2021-02-09", 20.50)]
+        [TestCase("abc", 2, "2021-01-09", 20.50)]
         public void CreateFoodDetail_ExpiryDateLessThanCurrentDate_RaiseException(string name, int dishType, DateTime expiryDate, double price)
         {
             Assert.Throws<Exception>(() => _program.CreateFoodDetail(name, dishType, expiryDate, price));
