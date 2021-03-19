@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{119E640F-AF22-4AAD-A1ED-56EC16097238}</ProjectGuid>
+    <ProjectGuid>{965B768A-5442-4F1B-959A-3C4FEA9AA65B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AbstractFactoryCaseStudy</RootNamespace>
-    <AssemblyName>AbstractFactoryCaseStudy</AssemblyName>
+    <RootNamespace>ObserverCaseStudy</RootNamespace>
+    <AssemblyName>ObserverCaseStudy</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="FactoryGetter.cs" />
-    <Compile Include="LuxuryCar.cs" />
-    <Compile Include="MicroCar.cs" />
-    <Compile Include="MiniCar.cs" />
+    <Compile Include="INotificationObserver.cs" />
+    <Compile Include="INotificationService.cs" />
+    <Compile Include="JohnObserver.cs" />
+    <Compile Include="NotificationService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SteveObserver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
