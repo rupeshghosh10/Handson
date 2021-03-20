@@ -9,8 +9,8 @@ namespace AbstractFactoryCaseStudy
     {
         static void Main(string[] args)
         {
-            CarType ctype = CarType.LUXURY;
-            Location loc = Location.INDIA;
+            var ctype = CarType.LUXURY;
+            var loc = Location.INDIA;
 
             var fg = new FactoryGetter();
             fg.GetCar(ctype, loc);
