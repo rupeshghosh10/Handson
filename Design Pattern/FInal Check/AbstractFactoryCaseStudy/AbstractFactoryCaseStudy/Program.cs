@@ -13,7 +13,7 @@ namespace AbstractFactoryCaseStudy
             string channel = "E-commerce";
             string productType = "Toys";
 
-            FactoryGetter fg = new FactoryGetter();
+            var fg = new FactoryGetter();
             fg.PlaceOrder(channel, productType);
 
         }

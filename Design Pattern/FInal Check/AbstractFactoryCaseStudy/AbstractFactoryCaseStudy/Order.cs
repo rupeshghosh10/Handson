@@ -14,6 +14,7 @@ namespace AbstractFactoryCaseStudy
         }
 
         public abstract void processOrder();
+
         public override string ToString()
         {
             return $"{ProductType} order accepted through {Channel} channel!";
